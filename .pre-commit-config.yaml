@@ -52,13 +52,6 @@ repos:
   rev: v0.0.18
   hooks:
   - id: circleci-config-validate
-- repo: https://github.com/ThisIsManta/stylus-supremacy
-  rev: v2.17.5
-  hooks:
-    - id: stylus-supremacy
-      args:
-        - '--options'
-        - './histomicsui/web_client/package.json'
 - repo: https://github.com/astral-sh/ruff-pre-commit
   # Ruff version.
   rev: v0.1.3

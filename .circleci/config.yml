@@ -3,9 +3,9 @@ version: 2.1
 jobs:
   test:
     docker:
-      - image: girder/girder_test:latest
-      - image: circleci/mongo:4.0-ram
-        command: ["mongod", "--storageEngine", "ephemeralForTest", "--dbpath", "/dev/shm/mongo"]
+      - image: girder/tox-and-node
+      - image: mongo:4.4
+        command: bash -c "mkdir /dev/shm/mongo && mongod --nojournal --dbpath=/dev/shm/mongo --noauth --bind_ip_all"
 
     steps:
       - checkout
@@ -16,15 +16,5 @@ jobs:
 workflows:
   version: 2
   ci:
-    jobs:
-      - test
-  nightly:
-    triggers:
-      - schedule:
-          cron: "0 0 * * *"
-          filters:
-            branches:
-              only:
-                - master
     jobs:
       - test
