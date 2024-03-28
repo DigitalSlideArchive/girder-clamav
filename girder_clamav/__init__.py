@@ -53,6 +53,8 @@ def _scan_file(event):
     if 'file' not in event.info or '_id' not in event.info['file']:
         return
     file = File().load(event.info['file']['_id'], force=True)
+    if file is None or '_id' not in file:
+        return
     try:
         hostAndPort = Setting().get(PluginSettings.CAV_HOST_PORT) or 'clamav:3310'
         host, port = hostAndPort.rsplit(':', 1)
