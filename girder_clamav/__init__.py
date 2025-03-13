@@ -1,8 +1,9 @@
 import datetime
+import logging
 import socket
 import struct
 
-from girder import events, logger, plugin
+from girder import events, plugin
 from girder.exceptions import ValidationException
 from girder.models.file import File
 from girder.models.notification import Notification, ProgressState
@@ -10,6 +11,8 @@ from girder.models.setting import Setting
 from girder.utility import setting_utilities
 
 from .constants import PluginSettings
+
+logger = logging.getLogger(__name__)
 
 
 @setting_utilities.validator(PluginSettings.CAV_HOST_PORT)
