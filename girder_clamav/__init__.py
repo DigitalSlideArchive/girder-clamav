@@ -87,13 +87,13 @@ def _scan_file(event):
                         #         f'CLAMAV: Sending more of chunk {len(chunk)}')
             s.send(b'\0\0\0\0')
             response = s.recv(1024).split(b'\0')[0]
-        if response.endswith(b': OK'):
+        if response.endswith(b' OK'):
             logger.info(f'CLAMAV: Scanned file {file["_id"]}: {file["name"]}: OK')
             return
-        elif response.endswith(b': ERROR'):
+        elif response.endswith(b' ERROR'):
             logger.info(f'CLAMAV: Scanned file {file["_id"]}: {file["name"]} '
                         f'errored: {response}; keeping file')
-        elif response.endswith(b': FOUND'):
+        elif response.endswith(b' FOUND'):
             logger.info(f'CLAMAV: Scanned file {file["_id"]}: {file["name"]} '
                         f'found issue: {response}; deleting file')
             File().remove(file)
