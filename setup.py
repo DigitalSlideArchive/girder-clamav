@@ -31,18 +31,18 @@ setup(
     author='Kitware, Inc.',
     author_email='kitware@kitware.com',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 4 - Beta',
         'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.8'
         'Programming Language :: Python :: 3.9'
         'Programming Language :: Python :: 3.10'
         'Programming Language :: Python :: 3.11'
         'Programming Language :: Python :: 3.12'
+        'Programming Language :: Python :: 3.13'
     ],
     install_requires=[
-        'girder',
+        'girder>=5.0.0a8',
     ],
     license='Apache Software License 2.0',
     long_description=readme,
